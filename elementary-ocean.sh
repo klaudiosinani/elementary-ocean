@@ -5,18 +5,18 @@ SCHEMA="io.elementary.terminal.settings"
 
 if ! gsettings list-schemas 2>/dev/null | grep -q "^${SCHEMA}$"; then
   echo "Error: Schema '${SCHEMA}' not found."
-  echo "This script is designed for Elementary OS 8.1 (Pantheon Terminal)."
+  echo "This script is designed for elementary OS 8.1"
   exit 1
 fi
 
-echo "Applying Elementary Ocean theme to Pantheon Terminal..."
+echo "[1/3] Applying Elementary Ocean theme to terminal..."
 
 gsettings set "${SCHEMA}" background "#0F111A"
 gsettings set "${SCHEMA}" foreground "#8F93A2"
 gsettings set "${SCHEMA}" cursor-color "#8F93A2"
 gsettings set "${SCHEMA}" prefer-dark-style true
 
-# Palette: 16 ANSI colors (0-15) separated by colons
+# Palette of 16 ANSI colors
 # 0  Black:          #000000
 # 1  Red:            #E25822
 # 2  Green:          #14B37D
@@ -35,5 +35,5 @@ gsettings set "${SCHEMA}" prefer-dark-style true
 # 15 Bright White:   #F3EFE0
 gsettings set "${SCHEMA}" palette "#000000:#E25822:#14B37D:#F2F27A:#3A75C4:#703FAF:#87D3F8:#FFFFFF:#333333:#E25822:#14B37D:#F2F27A:#3A75C4:#703FAF:#87D3F8:#F3EFE0"
 
-echo "Elementary Ocean theme applied successfully."
-echo "Restart Pantheon Terminal if the changes are not visible immediately."
+echo "[2/3] Elementary Ocean theme applied successfully."
+echo "[3/3] Restart your terminal if the changes are not visible immediately."
